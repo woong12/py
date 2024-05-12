@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        background-color: rgb(25, 25, 25);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+      }
+
+/*       
+      img {
+        max-width: 100%;
+        height: auto;
+      } */
+
+      #cameraPi {
+        width: 400px;
+        height: 280px;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+      }
+
+
+      /* Make the webcam feed responsive and centered */
+      #camera-feed {
+        max-width: 768px;
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /*create large container around all buttons*/
+      .button-master-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 600px; /* Set height to cover the entire viewport */
+        width: 400px;
+        justify-items: center;
+      }
+
+      /* Center the buttons and arrange them in a grid */
+      .button-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        max-width: 700px;
+      }
+
+      .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .buttonspace {
+        margin-top: 20px;
+      }
+
+      .buttonmv {
+        background-color: white;
+        width: 120px;
+        height: 120px;
+        border-radius: 10px;
+      }
+
+      .buttonchange {
+        background-color: red;
+        width: 120px;
+        height: 120px;
+        border-radius: 10px;
+      }
+      .buttonstop {
+       background-color: white;
+        width: 400px;
+        height: 100px;
+        border-radius: 10px;
+      }
+    </style>
+
+    <script>
+      //this first section controsl for spacebar input
+      document.addEventListener("keydown", function (event) {
+        var key = event.key;
+        if (key === " ") {
+          key = "h";
+        }
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "/send_command/" + key, true);
+        xhr.send();
+      });
+
+      function sendCommand(command) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "/send_command/" + command, true);
+        xhr.send();
+      }
+    </script>
+  </head>
+  <body>
+    <div
+      style="
+        background-color: rgb(26, 26, 26);
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      "
+    ></div>
+    <div id="cameraPi">
+    </div>
+ <script src="/js/script.js"></script>
+    <script>
+      // Run displayWebcamFeed function when the page is loaded
+      window.onload = function () {
+        displayWebcamFeed();
+      };
+    </script>
+
+    <!--master container-->
+    <div class="button-master-container">
+      <div class="">
+
+      <div class="button-container">
+        <div class="button">
+          <a href="#" onclick="sendCommand('q'); return false;">
+            <div class="buttonmv"></div>
+          </a>
+        </div>
+
+        <div class="button">
+          <a href="#" onclick="sendCommand('w'); return false;">
+            <div class="buttonmv"></div>
+          </a>
+        </div>
+
+        <div class="button">
+          <a href="#" onclick="sendCommand('e'); return false;">
+            <div class="buttonmv"></div>
+          </a>
+        </div>
+      </div>
+
+      <div class="button-container">
+        <div class="button">
+          <a href="#" onclick="sendCommand('r'); return false;">
+            <div class="buttonmv"></div>
+          </a>
+        </div>
+
+        <div class="button">
+          <a href="#" onclick="sendCommand('i'); return false;">
+            <div class="buttonchange"></div>
+          </a>
+        </div>
+
+        <div class="button">
+          <a href="#" onclick="sendCommand('u'); return false;">
+            <div class="buttonmv"></div>
+          </a>
+        </div>
+      </div>
+
+      <div class="button-container">
+        <div class="button">
+          <a href="#" onclick="sendCommand('o'); return false;">
+            <div class="buttonmv"></div>
+          </a>
+        </div>
+
+        <div class="button">
+          <a href="#" onclick="sendCommand('a'); return false;">
+            <div class="buttonmv"></div>
+          </a>
+        </div>
+
+        <div class="button">
+          <a href="#" onclick="sendCommand('s'); return false;">
+            <div class="buttonmv"></div>
+          </a>
+        </div>
+      </div>
+      
+      <div class="buttonspace">
+        <a href="#" onclick="sendCommand('h'); return false;">
+            <div class="buttonstop"></div>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
