@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+      }
+      html {
+        font-size: 100px;
+      }
+
+      body {
+        background-color: #222;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 0.3rem;
+        height: 100vh;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      #cameraPi {
+        width: 3em;
+        height: 2em;
+        border-radius: 30px;
+        gap: 0.05rem;
+        box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.6);
+      }
+
+      .box-move {
+        width: 3em;
+        height: 3em;
+        border-radius: 30px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.05rem;
+        padding: 0.05em;
+      }
+
+      .box-func {
+        width: 3em;
+        height: 1em;
+        border-radius: 30px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.05rem;
+        padding: 0.05em;
+      }
+
+      .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.3rem;
+        border-radius: 30px;
+        color: white;
+        box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.6);
+        transition: all 0.2s ease;
+      }
+
+      .btn:active {
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        transform: scale(0.95);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="cameraPi"></div>
+
+    <div class="box-func">
+      <div class="btn" onclick="sendCommand('o'); return false;">
+        <img src="/proto/dorr1.png" width="33" />
+      </div>
+      <div class="btn" onclick="sendCommand('g'); return false;">
+        <img src="/proto/claw.png" width="28" />
+      </div>
+      <div class="btn" onclick="sendCommand('c'); return false;">
+        <img src="/proto/dorr2.png" width="33" />
+      </div>
+    </div>
+    <div class="box-move">
+      <div class="btn button1" onclick="sendCommand('q'); return false;">↖</div>
+
+      <div class="btn button2" onclick="sendCommand('w'); return false;">↑</div>
+
+      <div class="btn button3" onclick="sendCommand('e'); return false;">↗</div>
+
+      <div class="btn button4" onclick="sendCommand('a'); return false;">←</div>
+
+      <div class="btn button5" onclick="sendCommand('s'); return false;">O</div>
+
+      <div class="btn button6" onclick="sendCommand('d'); return false;">→</div>
+
+      <div class="btn button7" onclick="sendCommand('z'); return false;">↙</div>
+
+      <div class="btn button8" onclick="sendCommand('x'); return false;">↓</div>
+
+      <div class="btn button9" onclick="sendCommand('v'); return false;">↘</div>
+    </div>
+
+    <script>
+      // Run displayWebcamFeed function when the page is loaded
+      window.onload = function () {
+        displayWebcamFeed();
+      };
+
+      //this first section controsl for spacebar input
+      document.addEventListener("keydown", function (event) {
+        var key = event.key;
+        if (key === " ") {
+          key = "h";
+        }
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "/send_command/" + key, true);
+        xhr.send();
+      });
+
+      function sendCommand(command) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "/send_command/" + command, true);
+        xhr.send();
+      }
+
+      // Function to fetch and display webcam feed
+      function displayWebcamFeed() {
+        // Endpoint URL for fetching webcam feed
+        // const webcamFeedUrl = "http://10.251.150.148:8000/stream.mjpg"; // Replace with your actual RPI cam server address and port
+        const webcamFeedUrl = "http://192.168.0.39:8000/stream.mjpg"; // Replace with your actual RPI cam server address and port
+
+        // Select the div where you want to display the webcam feed
+        const webcamFeedDiv = document.getElementById("cameraPi");
+
+        // Create a new HTML <img> element to display the webcam feed
+        const webcamImage = document.createElement("img");
+
+        // Set attributes for the image element
+        webcamImage.src = webcamFeedUrl; // Set the source of the image to the webcam feed URL
+        webcamImage.alt = "Webcam Feed"; // Provide an alt attribute for accessibility
+
+        // Append the image element to the webcam feed div
+        webcamFeedDiv.appendChild(webcamImage);
+      }
+    </script>
+  </body>
+</html>
