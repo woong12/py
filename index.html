@@ -53,9 +53,20 @@
         height: 1em;
         border-radius: 30px;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(6, 1fr);
         gap: 0.05rem;
         padding: 0.05em;
+      }
+
+      .btn_s {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.3rem;
+        border-radius: 10px;
+        color: white;
+        box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.6);
+        transition: all 0.2s ease;
       }
 
       .btn {
@@ -73,28 +84,87 @@
         box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
         transform: scale(0.95);
       }
+
+      .btn_s:active {
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        transform: scale(0.95);
+      }
     </style>
   </head>
   <body>
     <div id="cameraPi"></div>
 
     <div class="box-func">
-      <div class="btn" onclick="sendCommand('o'); return false;">
+      <div class="btn_s" onclick="sendCommand('1'); return false;">
         <img
-          src="https://6657f1670f97528b5ea76326--fascinating-medovik-eea51f.netlify.app/dorr1.png"
-          width="33"
+          src="https://chipper-dolphin-79b631.netlify.app/Group%205.png"
+          width="36"
         />
       </div>
-      <div class="btn" onclick="sendCommand('g'); return false;">
+      <div class="btn_s" onclick="sendCommand('2'); return false;">
         <img
-          src="https://6657f1670f97528b5ea76326--fascinating-medovik-eea51f.netlify.app/claw.png"
+          src="https://chipper-dolphin-79b631.netlify.app/Group%206.png"
+          width="36"
+        />
+      </div>
+      <div class="btn_s" onclick="sendCommand('3'); return false;">
+        <img
+          src="https://chipper-dolphin-79b631.netlify.app/Group%207.png"
+          width="36"
+        />
+      </div>
+      <div class="btn_s" onclick="sendCommand('4'); return false;">
+        <img
+          src="https://chipper-dolphin-79b631.netlify.app/Group%208.png"
+          width="36"
+        />
+      </div>
+      <div class="btn_s" onclick="sendCommand('5'); return false;">
+        <img
+          src="https://chipper-dolphin-79b631.netlify.app/Group%209.png"
+          width="36"
+        />
+      </div>
+      <div class="btn_s" onclick="sendCommand('6'); return false;">
+        <img
+          src="https://chipper-dolphin-79b631.netlify.app/Group%2010.png"
+          width="36"
+        />
+      </div>
+      <div class="btn_s" onclick="sendCommand('7'); return false;">
+        <img
+          src="https://chipper-dolphin-79b631.netlify.app/wheel.png"
+          width="30"
+        />
+      </div>
+      <div class="btn_s" onclick="sendCommand('8'); return false;">
+        <img
+          src="https://chipper-dolphin-79b631.netlify.app/cctv.png"
+          width="30"
+        />
+      </div>
+      <div class="btn_s" onclick="sendCommand('9'); return false;">
+        <img
+          src="https://6679375f123d5b7ab479164d--dynamic-druid-44b681.netlify.app/lb.png"
           width="28"
         />
       </div>
-      <div class="btn" onclick="sendCommand('c'); return false;">
+      <div class="btn_s" onclick="sendCommand('o'); return false;">
         <img
-          src="https://6657f1670f97528b5ea76326--fascinating-medovik-eea51f.netlify.app/dorr2.png"
+          src="https://chipper-dolphin-79b631.netlify.app/dorr1.png"
           width="33"
+        />
+      </div>
+      <div class="btn_s" onclick="sendCommand('c'); return false;">
+        <img
+          src="https://chipper-dolphin-79b631.netlify.app/dorr2.png"
+          width="30"
+        />
+      </div>
+      <div class="btn_s" onclick="sendCommand('g'); return false;">
+        <img
+          src="https://chipper-dolphin-79b631.netlify.app/claw.png"
+          width="28"
         />
       </div>
     </div>
