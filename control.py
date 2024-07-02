@@ -29,5 +29,5 @@ def handle_command(command):
 
 if __name__ == '__main__':
     #app.run(debug=True, host='127.0.1.1', port=5001)
-    app.run(host='10.251.145.132')
-    app.run(host='0.0.0.0')
+    app.run(host='10.251.149.101')
+    #app.run(host='0.0.0.0')

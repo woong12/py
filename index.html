@@ -22,7 +22,7 @@
         justify-content: center;
         flex-direction: column;
         gap: 0.3rem;
-        height: 100vh;
+        height: 90vh;
       }
 
       img {
@@ -177,7 +177,7 @@
 
       <div class="btn button4" onclick="sendCommand('a'); return false;">←</div>
 
-      <div class="btn button5" onclick="sendCommand('s'); return false;">O</div>
+      <div class="btn button5" onclick="sendCommand('s'); return false;">o</div>
 
       <div class="btn button6" onclick="sendCommand('d'); return false;">→</div>
 
@@ -215,7 +215,7 @@
       function displayWebcamFeed() {
         // Endpoint URL for fetching webcam feed
         // const webcamFeedUrl = "http://10.251.150.148:8000/stream.mjpg"; // Replace with your actual RPI cam server address and port
-        const webcamFeedUrl = "http://192.168.0.39:8000/stream.mjpg"; // Replace with your actual RPI cam server address and port
+        const webcamFeedUrl = "http://10.251.149.101:8000/stream.mjpg"; // Replace with your actual RPI cam server address and port
 
         // Select the div where you want to display the webcam feed
         const webcamFeedDiv = document.getElementById("cameraPi");

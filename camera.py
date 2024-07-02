@@ -110,7 +110,7 @@ class StreamingHandler(server.BaseHTTPRequestHandler):
                     self.wfile.write(b'\r\n')
             except Exception as e:
                 logging.warning(
-                    'Removed streaming client %s: %s',
+                    'Removed streaming client  %s: %s',
                     self.client_address, str(e))
         # elif self.path == '/capture':
             # self.send_response(200)
